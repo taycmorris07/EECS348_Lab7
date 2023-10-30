@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EECS 348 Lab Seven Practice Two</title>
+    <style>
+        :root {
+            --border-color: 0, 0, 0;
+            --border-width: 1px;
+            --bg-color: 255, 255, 255;
+        }
+
+        #colored-para {
+            padding: 20px;
+            border: var(--border-width) solid rgb(var(--border-color));
+            background-color: rgb(var(--bg-color));
+            transition: all 0.3s ease;
+        }
+
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <p id="colored-para">Paragraph to be altered.</p>
+        <label for="borderR">Border R(0-255): </label>
+        <input type="number" id="borderR" min="0" max="255">
+        <br>
+        <label for="borderG">Border G(0-255): </label>
+        <input type="number" id="borderG" min="0" max="255">
+        <br>
+        <label for="borderB">Border B(0-255): </label>
+        <input type="number" id="borderB" min="0" max="255">
+        <br>
+        <label for="borderWidth">Border Width: </label>
+        <input type="number" id="borderWidth" min="1">
+        <br>
+        <label for="bgR">Background R(0-255): </label>
+        <input type="number" id="bgR" min="0" max="255">
+        <br>
+        <label for="bgG">Background G(0-255): </label>
+        <input type="number" id="bgG" min="0" max="255">
+        <br>
+        <label for="bgB">Background B(0-255): </label>
+        <input type="number" id="bgB" min="0" max="255">
+        <br>
+        <button onclick="changeColor()">Change the color!</button>
+    </div>
+
+    <script>
+        function changeColor() {
+            var borderR = document.getElementById("borderR").value;
+            var borderG = document.getElementById("borderG").value;
+            var borderB = document.getElementById("borderB").value;
+            var borderWidth = document.getElementById("borderWidth").value;
+            var bgR = document.getElementById("bgR").value;
+            var bgG = document.getElementById("bgG").value;
+            var bgB = document.getElementById("bgB").value;
+
+            document.documentElement.style.setProperty('--border-color', borderR + ', ' + borderG + ', ' + borderB);
+            document.documentElement.style.setProperty('--border-width', borderWidth + 'px');
+            document.documentElement.style.setProperty('--bg-color', bgR + ', ' + bgG + ', ' + bgB);
+        }
+    </script>
+</body>
+
+</html>
